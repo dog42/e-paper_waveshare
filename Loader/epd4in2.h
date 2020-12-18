@@ -136,7 +136,8 @@ int EPD_Init_4in2b()
     EPD_WaitUntilIdle();
     EPD_Send_1(0x00, 0x0F);//PANEL_SETTING
     EPD_Send_1(0x50,0xF7);// VCOM_AND_DATA_INTERVAL_SETTING
-    
+    EPD_Send_4(0x61, 1, 144, 1, 44);// RESOLUTION_SETTING: HI(W), LO(W), HI(H), LO(H)  
+    EPD_Send_1(0x82, 0x12);// VCM_DC_SETTING  
 
     EPD_SendCommand(0x10);//DATA_START_TRANSMISSION_1  
     delay(2);
